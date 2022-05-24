@@ -9,25 +9,23 @@
 $dark: #0c0a15;
 $ldark: #1d1f20;
 $main: #fff;
-$bright: #FFF;
+$bright: #fff;
 $neon: #13f6fe;
-$mont: 'Montserrat', sans-serif;
-$inter:'Inter', sans-serif;
-$glow_g: 0 0 5px rgba(157, 255, 0, .3);
+$mont: "Montserrat", sans-serif;
+$inter: "Inter", sans-serif;
+$glow_g: 0 0 5px rgba(157, 255, 0, 0.3);
 
 %pseudo {
-    position: absolute;
-    display: inline-block;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    background-size: cover;
-
+  position: absolute;
+  display: inline-block;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
 
 html {
   line-height: 1.6;
@@ -214,7 +212,7 @@ li {
 
 // CIRCLE PROGRESS BAR
 .progress__wrapper {
-    position: relative;
+  position: relative;
   display: flex;
   gap: 20px;
   justify-content: end;
@@ -224,7 +222,7 @@ li {
   height: 120px;
   border-radius: 999px;
   /*border: 1px solid #146ae4;*/
-//   box-shadow: 0 0 30px 1px rgba(65, 142, 220, 0.6);
+  //   box-shadow: 0 0 30px 1px rgba(65, 142, 220, 0.6);
   background-color: $ldark;
   svg {
     height: 100%;
@@ -232,13 +230,16 @@ li {
     filter: drop-shadow(0 0 10px $neon);
   }
   &__label {
-      text-align: center;
-      margin-top: 20px;
-      max-width: 100%;
-      font-size: 12px;
+    text-align: center;
+    margin-top: 20px;
+    max-width: 100%;
+    font-size: 12px;
   }
   &__item {
     min-width: 13ch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 .progressbar-text {
@@ -246,17 +247,17 @@ li {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-//   animation: neon2 1.5s ease-in-out infinite alternate;
-  font-family: 'Montserrat', sans-serif;
+  //   animation: neon2 1.5s ease-in-out infinite alternate;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 600;
   text-shadow: $glow_g;
 }
 #progressbar .progressbar-text {
-    color: rgb(187, 255, 0) !important;
+  color: rgb(187, 255, 0) !important;
 }
 #progressbar4 .progressbar-text {
-    color: #00FF01 !important;
+  color: #00ff01 !important;
 }
 .gradient-border {
   --borderWidth: 2px;
@@ -314,139 +315,217 @@ li {
   }
 }
 main {
-    display: flex;
+  display: flex;
 }
 .col__left {
-    flex-shrink: 1;
-    flex-grow: 1;
-    padding: 0 48px;
+  flex-shrink: 1;
+  flex-grow: 1;
+  padding: 0 48px;
 }
 .col__right {
-    flex-basis: 290px;
-    flex-shrink: 0;
-    flex-grow: 0;
-    padding: 36px;
-    border-radius: 20px;
-    background-color: $ldark;
+  flex-basis: 290px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding: 36px;
+  border-radius: 20px;
+  background-color: $ldark;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  img {
+    width: 100%;
+  }
+}
+.contacts__download {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: $bright;
+  position: relative;
+  font-size: 18px;
+  margin-right: 20px;
+  animation: neon2 1.5s ease-in-out infinite alternate;
+  &:before {
+    @extend %pseudo;
+    background-image: url(/src/images/download.svg);
+    width: 20px;
+    height: 20px;
+    filter: drop-shadow(0 0 10px $neon);
+  }
+}
+@keyframes neon2 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228dff,
+      0 0 70px #228dff, 0 0 80px #228dff, 0 0 100px #228dff, 0 0 150px #228dff;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff,
+      0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
+  }
+}
+
+.support {
+  display: inline-block;
+  margin: 0 auto 32px auto;
+  &__ava {
+    position: relative;
+    border-radius: 100%;
+    width: 110px;
+    height: 110px;
+    border: 10px solid $bright;
+    background-image: url(/src/images/ava.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto 16px auto;
+    &::after {
+      @extend %pseudo;
+      background-image: url(/src/images/supp_icon.svg);
+      width: 35px;
+      height: 35px;
+      left: auto;
+      right: -10px;
+      top: -9px;
+    }
+  }
+  &__content {
+    text-align: center;
+  }
+  &__title {
+    font-family: $mont;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  &__description {
+    font-size: 12px;
+  }
+  &__chat {
+    // font-size: 14px;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 17px;
+    &::before {
+      @extend %pseudo;
+      background-image: url(/src/images/icon_chat.svg);
+      width: 22px;
+      height: 20px;
+      top: 3px;
+      left: -5px;
+    }
+  }
+}
+.info {
+  box-shadow: 0 0 92px rgba(0, 195, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px 30px 30px;
+  background-color: $ldark;
+  &__menu {
+    display: flex;
+    justify-content: center;
+    padding: 18px 0;
+    border-top: 1px solid $dark;
+    border-bottom: 1px solid $dark;
+    gap: 75px;
+    &_link {
+      position: relative;
+      &::before {
+        @extend %pseudo;
+        left: -25px;
+        top: 3px;
+      }
+    }
+    &_info::before {
+      background-image: url(/src/images/icon_info.svg);
+      width: 18px;
+      height: 18px;
+    }
+    &_reviews::before {
+      background-image: url(/src/images/icon_reviews.svg);
+      width: 19px;
+      height: 18px;
+    }
+    &_review::before {
+      background-image: url(/src/images/icon_review.svg);
+      width: 14px;
+      height: 10px;
+      top: 8px;
+    }
+  }
+  &__content {
+    display: flex;
+    gap: 60px;
+    margin-top: 18px;
+
+    &_table {
+      img {
+        border-radius: 3px;
+      }
+      &_title {
+        
+        margin-bottom: 22px;
+        h2 {
+          font-size: 20px;
+          line-height: 24px;
+          font-weight: 600;
+
+        }
+      }
+    }
+    ul {
+      margin: 0;
+    }
+    li {
+      position: relative;
+      margin-bottom: 9px;
+      &::before {
+        @extend %pseudo;
+        top: 5px;
+        left: -26px;
+        background-image: url(/src/images/icon_check.svg);
+      }
+    }
+    &_list {
+      margin-top: 0px;
+    }
+  }
+}
+.rating {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 18px;
+  //   outline: 1px solid $bright;
+
+  &__wrapper {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    img {
-        width: 100%;
-    }
-}
-.contacts__download {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+    background-image: url(/src/images/icon-pokerok.png);
+    background-repeat: no-repeat;
+    background-position: top 0 left 10px;
+    background-size: 24%;
+  }
+  &__title {
+    align-self: start;
+    font-family: $mont;
+    font-size: 20px;
+  }
+  &__text {
     color: $bright;
-    position: relative;
-    font-size: 18px;
-    margin-right: 20px;
-    animation: neon2 1.5s ease-in-out infinite alternate;
-    &:before {
-        @extend %pseudo;
-        background-image: url(/src/images/download.svg);
-        width: 20px;
-        height: 20px;
-        filter: drop-shadow(0 0 10px $neon);
-       
+    text-align: center;
+    font-family: $mont;
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: 0 0 5px rgba(157, 255, 0, 0.3);
+    margin-top: 50px;
+    margin-left: 30px;
+    em {
+      color: rgb(187, 255, 0);
+      font-size: 32px;
     }
+  }
+  &__stars {
+    filter: drop-shadow($glow_g);
+    margin-left: 30px;
+  }
 }
-@keyframes neon2 {
-    from {
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228dff,
-        0 0 70px #228dff, 0 0 80px #228dff, 0 0 100px #228dff, 0 0 150px #228dff;
-    }
-    to {
-      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff,
-        0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
-    }
-  }
-
-  .support {
-      display: inline-block;
-      margin: 0 auto 32px auto;
-      &__ava {
-          position: relative;
-          border-radius: 100%;
-          width: 110px;
-          height: 110px;
-          border: 10px solid $bright;
-          background-image: url(/src/images/ava.jpg);
-          background-repeat: no-repeat;
-          background-size: cover;
-          margin: 0 auto 16px auto;
-          &::after {
-              @extend %pseudo;
-              background-image: url(/src/images/supp_icon.svg);
-              width: 35px;
-              height: 35px;
-              left: auto;
-              right: -10px;
-              top: -9px;
-          }
-      }
-      &__content {
-          text-align: center;
-      }
-      &__title {
-          font-family: $mont;
-          font-size: 18px;
-          font-weight: 500;
-      }
-      &__description {
-          font-size: 12px;
-      }
-      &__chat {
-        // font-size: 14px;
-        position: relative;
-        margin-top: 10px;
-        margin-left: 17px;
-        &::before {
-            @extend %pseudo;
-            background-image: url(/src/images/icon_chat.svg);
-            width: 22px;
-            height: 20px;
-            top: 3px;
-            left: -5px;
-        }
-      }
-  }
-  .rating {
-      display: flex;
-      justify-content: space-between;
-      border-radius: 20px;
-    //   outline: 1px solid $bright;
-    padding: 2ch;
-      outline-offset: 20px;
-      box-shadow: 0 0 92px rgba(0, 195, 255, 0.08);
-      &__wrapper {
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-          align-items: center;
-      }
-      &__title {
-          align-self: start;
-          font-family: $mont;
-          font-size: 20px;
-      }
-      &__text {
-        color: $bright;
-       text-align: center;
-       font-family: $mont ;
-       font-size: 20px;
-       font-weight: 600;
-       text-shadow: 0 0 5px rgba(157, 255, 0, .3);
-       margin-top: 40px;
-       em {
-        color: rgb(187, 255, 0);
-        font-size: 32px;
-       }
-      }
-      &__stars {
-          filter: drop-shadow($glow_g);
-      }
-  }
