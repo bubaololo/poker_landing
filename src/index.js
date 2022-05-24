@@ -15,7 +15,7 @@ document.querySelector(".menu__icon").addEventListener("click", (event) => {
   var ProgressBar = require('progressbar.js')
   function circle(node, rating) {
     var circle = new ProgressBar.Circle(node, {
-      color: '#13f6fe',
+      color: '#FFF',
       trailColor: "transparent", 
       strokeWidth: 8,
       trailWidth: 8,
@@ -23,7 +23,7 @@ document.querySelector(".menu__icon").addEventListener("click", (event) => {
       text: {
         value: '0%',
         style: {
-          color: '#13f6fe' 
+          color: '#FFF' 
         }
       },
       step: function(state, bar) {
