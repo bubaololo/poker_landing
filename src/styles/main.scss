@@ -12,7 +12,8 @@ $main: #fff;
 $bright: #FFF;
 $neon: #13f6fe;
 $mont: 'Montserrat', sans-serif;
-$inter:'Inter', sans-serif;;
+$inter:'Inter', sans-serif;
+$glow_g: 0 0 5px rgba(157, 255, 0, .3);
 
 %pseudo {
     position: absolute;
@@ -213,6 +214,7 @@ li {
 
 // CIRCLE PROGRESS BAR
 .progress__wrapper {
+    position: relative;
   display: flex;
   gap: 20px;
   justify-content: end;
@@ -223,12 +225,20 @@ li {
   border-radius: 999px;
   /*border: 1px solid #146ae4;*/
 //   box-shadow: 0 0 30px 1px rgba(65, 142, 220, 0.6);
-  position: relative;
   background-color: $ldark;
   svg {
     height: 100%;
     transform: rotate(180deg);
     filter: drop-shadow(0 0 10px $neon);
+  }
+  &__label {
+      text-align: center;
+      margin-top: 20px;
+      max-width: 100%;
+      font-size: 12px;
+  }
+  &__item {
+    min-width: 13ch;
   }
 }
 .progressbar-text {
@@ -240,8 +250,14 @@ li {
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 600;
+  text-shadow: $glow_g;
 }
-
+#progressbar .progressbar-text {
+    color: rgb(187, 255, 0) !important;
+}
+#progressbar4 .progressbar-text {
+    color: #00FF01 !important;
+}
 .gradient-border {
   --borderWidth: 2px;
   background: $ldark;
@@ -303,13 +319,14 @@ main {
 .col__left {
     flex-shrink: 1;
     flex-grow: 1;
-    padding: 48px;
+    padding: 0 48px;
 }
 .col__right {
     flex-basis: 290px;
     flex-shrink: 0;
     flex-grow: 0;
     padding: 36px;
+    border-radius: 20px;
     background-color: $ldark;
     display: flex;
     flex-direction: column;
@@ -349,7 +366,7 @@ main {
 
   .support {
       display: inline-block;
-      margin: 0 auto 16px auto;
+      margin: 0 auto 32px auto;
       &__ava {
           position: relative;
           border-radius: 100%;
@@ -394,5 +411,42 @@ main {
             top: 3px;
             left: -5px;
         }
+      }
+  }
+  .rating {
+      display: flex;
+      justify-content: space-between;
+      border-radius: 20px;
+    //   outline: 1px solid $bright;
+    padding: 2ch;
+      outline-offset: 20px;
+      box-shadow: 0 0 92px rgba(0, 195, 255, 0.08);
+      &__wrapper {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+      }
+      &__title {
+          align-self: start;
+          font-family: $mont;
+          font-size: 20px;
+      }
+      &__text {
+        color: $bright;
+       text-align: center;
+       font-family: $mont ;
+       font-size: 20px;
+       font-weight: 600;
+       text-shadow: 0 0 5px rgba(157, 255, 0, .3);
+       margin-top: 40px;
+       em {
+        color: rgb(187, 255, 0);
+        font-size: 32px;
+       }
+      }
+      &__stars {
+          filter: drop-shadow($glow_g);
       }
   }

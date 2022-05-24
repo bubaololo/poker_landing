@@ -23,11 +23,11 @@ document.querySelector(".menu__icon").addEventListener("click", (event) => {
       text: {
         value: '0%',
         style: {
-          color: '#FFF' 
+          color: 'rgb(157, 255, 0)' 
         }
       },
       step: function(state, bar) {
-        var num = (bar.value() * 10).toFixed(1)+"/10"
+        var num = (bar.value() * 5).toFixed(1)
         // console.log(num, 'bar.value()')
         bar.setText(num);
       }
@@ -38,4 +38,5 @@ document.querySelector(".menu__icon").addEventListener("click", (event) => {
   circle('#progressbar', 0.86);
   circle('#progressbar2', 0.9);
   circle('#progressbar3', 0.95);
+  circle('#progressbar4', 1);
 
