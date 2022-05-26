@@ -64,18 +64,74 @@ document.querySelector(".menu__icon").addEventListener("click", (event) => {
       },
   });
 
-//   var swiper = new Swiper(".swiper", {
-//     slidesPerView: 'auto',
-//     spaceBetween: 30,
-//     loop: true,
-//     pagination: {
-//       el: ".swiper-pagination",
-//       clickable: true,
-//     },
-//     navigation: {
-//       nextEl: ".swiper-button-next",
-//       prevEl: ".swiper-button-prev",
-//     },
-//   });
+/*** Rating ***/
+
+let rating_fields = document.querySelectorAll('.stars-rating-field');
+
+if (rating_fields) {
+
+	rating_fields.forEach(function (rating_field) {
+
+		let rating_stars = rating_field.querySelectorAll('.stars-rating__star');
+
+		if (rating_stars) {
+
+			rating_stars.forEach(function (rating_star) {
+
+				rating_star.addEventListener('click', function (e) {
+
+					let selected_index = this.getAttribute('data-star');
+
+					let rating_field_input = rating_field.querySelector('#commentform input[name="comment_rating"]');
+
+					if (rating_field_input) {
+						rating_field_input.value = selected_index;
+					}
+
+					rating_stars.forEach(function (rating_star, rating_star_index) {
+
+						let rating_star_icon = rating_star.querySelector('use');
+
+						if (rating_star_index < selected_index) {
+							rating_star.classList.add('stars-rating__star--full');
+							rating_star.classList.remove('stars-rating__star--empty');
+							rating_star_icon.setAttribute('xlink:href', '#star-full');
+						} else {
+							rating_star.classList.add('stars-rating__star--empty');
+							rating_star.classList.remove('stars-rating__star--full');
+							rating_star_icon.setAttribute('xlink:href', '#star');
+						}
+					})
+
+					e.preventDefault();
+				});
+			});
+		}
+	});
+}
+
+document.addEventListener("click", function (event) {
+
+	if (!event.target.closest('.star.star-empty')) return;
+	event.preventDefault();
+	let starEl = event.target.closest('.star.star-empty');
+	let selectedIndex = starEl.getAttribute('data-star');
+
+	document.querySelector('#commentform input[name="comment_rating"]').value = selectedIndex;
+
+	var form = event.target.closest('.star-rating');
+	var stars = Array.from(form.querySelectorAll('.star'));
+	stars.forEach(function (star, index) {
+		if (index < selectedIndex) {
+			star.classList.add('rating-hover');
+		} else {
+			star.classList.remove('rating-hover');
+		}
+	});
+
+});
+
+/*** END Rating ***/
+
   
   
