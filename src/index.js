@@ -4,6 +4,7 @@ import './styles/media.scss';
 
 import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/css';
+import 'hystmodal/dist/hystmodal.min.js'
 
 // BURGER________________________________
 
@@ -132,6 +133,32 @@ document.addEventListener("click", function (event) {
 });
 
 /*** END Rating ***/
+const success = new HystModal({
+    linkAttributeName: "data-hystmodal",
+});
+let reviewButton = document.querySelector('.apf__submit');
 
+reviewButton.addEventListener('click', (e)=>{
+    e.preventDefault;
+    const inputs = document.querySelectorAll('input, textarea');
+
+    inputs.forEach(input => {
+      input.value = '';
+    });
+
+})
+    
+let commentButton = document.querySelector('.comments__button');
+
+commentButton.addEventListener('click', showComments);
+
+function showComments() {
+
+   let hiddenComments = document.querySelectorAll('.comment-list li:nth-child(n+5)');
+   hiddenComments.forEach(comment => comment.style.display='block');
+   commentButton.style.display='none';
+
+   
+}
   
   
