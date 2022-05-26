@@ -2,6 +2,9 @@ import 'normalize.css'
 import './styles/main.scss';
 import './styles/media.scss';
 
+import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
+import 'swiper/css';
+
 // BURGER________________________________
 
 document.querySelector(".menu__icon").addEventListener("click", (event) => {
@@ -40,3 +43,39 @@ document.querySelector(".menu__icon").addEventListener("click", (event) => {
   circle('#progressbar3', 0.95);
   circle('#progressbar4', 1);
 
+//   Swiper.use([Navigation]);
+  const swiper = new Swiper('.swiper', {
+    modules: [Navigation, Pagination, Autoplay],
+    slidesPerView:1.2,
+    centeredSlides: true,
+    spaceBetween: 20,
+	autoplay: {
+		delay: 5000,
+		disableOnInteraction: false
+	},
+	loop: true,
+          navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+  });
+
+//   var swiper = new Swiper(".swiper", {
+//     slidesPerView: 'auto',
+//     spaceBetween: 30,
+//     loop: true,
+//     pagination: {
+//       el: ".swiper-pagination",
+//       clickable: true,
+//     },
+//     navigation: {
+//       nextEl: ".swiper-button-next",
+//       prevEl: ".swiper-button-prev",
+//     },
+//   });
+  
+  

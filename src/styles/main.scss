@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@300;400;600&family=Roboto+Condensed:wght@300;400&display=swap");
+@import "/node_modules/swiper/swiper-bundle.css";
 
 // font-family: 'Inter', sans-serif; 300 400 600
 
@@ -12,6 +13,7 @@ $grey: rgb(104, 99, 99);
 $main: #fff;
 $bright: #fff;
 $neon: #13f6fe;
+$green: rgb(157, 255, 0);
 $mont: "Montserrat", sans-serif;
 $inter: "Inter", sans-serif;
 $glow_g: 0 0 5px rgba(157, 255, 0, 0.3);
@@ -590,7 +592,7 @@ height: 40px;
             font-size: 24px;
         }
         &_btn {
-            background-color: $neon;
+            background-color: $green;
             color: $ldark;
             font-weight: 600;
         }
@@ -631,4 +633,51 @@ height: 40px;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#30ff90', endColorstr='#30ff90',GradientType=1 ); /* IE6-9 */
   
   }
+
+.pics {
+    overflow: hidden;
+max-width: 964px;
+&__title {
+    margin-bottom: 30px;
+}
+}
+.swiper {
+    max-width: 100%;
+    margin-bottom: 15px;
+    img {
+        height: 500px;
+        height: 500px;
+position: relative;
+left: 50%;
+transform: translateX(-50%);
+    }
+    &-pagination {
+        position: relative;
+        margin-top: 15px;
+    }
+    &-pagination-bullet {
+        opacity: .5; /*was 0.2 and was impossible to see on some background images*/
+    }
+    &-pagination-bullet-active {
+        background: #ffffff;
+    }
+    &-button-prev, .swiper-button-next {
+        color: #FFF;
+    }
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+tr td:nth-child(1) {
+    width: 42%;
+  }
+table tr:nth-child(odd) {
+    background-color: #151515;
+  }
+td {
+    padding: 10px 0 5px 30px;
+}
+
 
