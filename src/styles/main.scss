@@ -1169,8 +1169,13 @@ textarea {
 }
 
 .review {
+    img {
+        max-width: 65ch;
+        margin: 20px auto;
+    }
 &__wrapper {
     display: flex;
+    margin-top: 40px;
 }
 li {
     list-style: initial;
@@ -1179,7 +1184,7 @@ li {
     flex-basis: 360px;
 flex-shrink: 0;
 flex-grow: 0;
-padding: 24px 36px;
+padding: 0 36px 24px 36px;
 
 li {
     list-style: none;
@@ -1191,6 +1196,7 @@ li {
     border-radius: 20px;
     background-color: #F8F8F8;
     padding: 24px 24px 24px 40px;
+    margin: 0;
     color: $lgrey;
 }
 &_item {
@@ -1221,7 +1227,7 @@ max-width: 65ch;
       margin-top: 36px;
     }
     .c6 {
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
     .c5 {
       font-weight: 600;
