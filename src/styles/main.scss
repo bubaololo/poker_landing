@@ -11,6 +11,7 @@
 $dark: #0c0a15;
 $ldark: #1d1f20;
 $grey: rgb(104, 99, 99);
+$lgrey: #8e8e8e;
 $main: #fff;
 $bright: #fff;
 $neon: #13f6fe;
@@ -940,12 +941,11 @@ main {
   padding-bottom: 0;
 }
 .comment-form {
-    margin-right: 300px;
-    
+  margin-right: 300px;
+
   margin-top: 48px;
   margin-bottom: 12px;
   min-width: 670px;
-
 }
 .comment-form__title {
   margin-bottom: 16px;
@@ -954,7 +954,6 @@ main {
   font-weight: bold;
 }
 .comment-form__content {
-  
   border-radius: 10px;
   padding: 24px 10px;
   background-color: #f8f8f8;
@@ -1092,10 +1091,9 @@ main {
 .bright__content {
   width: 100%;
   height: 100%;
-  padding-top: 80px;
+  padding: 80px 0;
   background-color: $bright;
   color: $ldark;
-
 }
 .comment-content {
   p {
@@ -1106,86 +1104,152 @@ main {
 .hystmodal {
   color: $ldark;
 }
-.review {
-    margin-top: 80px;
-    li {
-        list-style: initial;
-    }
-  h2 {
-      font-family: $mont;
-      font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
-    margin-bottom: 20px;
-    margin-top: 36px;
-  }
-  .c6 {
-      margin-bottom: 16px;
-  }
-  .c5 {
-      font-weight: 600;
-  }
-}
-.comment-list li:nth-child(n+5) {
-    display: none;
+
+.comment-list li:nth-child(n + 5) {
+  display: none;
 }
 .comments__button {
-    color: $bright;
-    margin: 20px auto;
-    background-color: $grey;
+  color: $bright;
+  margin: 20px auto;
+  background-color: $grey;
 }
 .page__content {
-    display: flex;
+  display: flex;
 
-flex-direction: column;
-align-items: end;
+  flex-direction: column;
+  align-items: end;
 }
 
 input {
-    height: 36px;
-    padding: 0 20px;
-    border-radius: 8px;
-    width: 100%;
-    background: #F3F3F3;
-    border: 1px solid #fff;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    letter-spacing: 0.7px;
-    color: #4A4A4A;
-    outline: none;
-    margin-bottom: 16px;
+  height: 36px;
+  padding: 0 20px;
+  border-radius: 8px;
+  width: 100%;
+  background: #f3f3f3;
+  border: 1px solid #fff;
+  font-weight: 300;
+  letter-spacing: 0.7px;
+  color: #4a4a4a;
+  outline: none;
+  margin-bottom: 16px;
 }
 
 input:focus {
-    border: 1px solid #4A4A4A;
-    background: #fff;
-    color: black;
-    transition: all .5s;
+  border: 1px solid #4a4a4a;
+  background: #fff;
+  color: black;
+  transition: all 0.5s;
 }
 textarea {
-    min-height: 120px;
-    resize: vertical;
-    padding: 20px;
+  min-height: 120px;
+  resize: vertical;
+  padding: 20px;
 }
-.apf__submit, .confirm_ok {
-    border: none;
-    color: $ldark;
-    margin-top: 24px;
-    cursor: pointer;
-    &:hover {
-        box-shadow:  0 0 5px rgba(255, 255, 255, 0.9);;
-    }
+.apf__submit,
+.confirm_ok {
+  border: none;
+  color: $ldark;
+  margin-top: 24px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.9);
+  }
 }
 .confirm__wrapper {
-    min-width: 300px;
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+  min-width: 300px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 .hystmodal__window {
-    border-radius: 20px;
+  border-radius: 20px;
 }
 
+.review {
+&__wrapper {
+    display: flex;
+}
+li {
+    list-style: initial;
+  }
+&__nav {
+    flex-basis: 360px;
+flex-shrink: 0;
+flex-grow: 0;
+padding: 24px 36px;
+
+li {
+    list-style: none;
+}
+&_links {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 40px;
+    border-radius: 20px;
+    background-color: #F8F8F8;
+    padding: 24px 24px 24px 40px;
+    color: $lgrey;
+}
+&_item {
+    margin-bottom: 20px;
+    
+    &:hover {
+        list-style: square ;
+        text-decoration: underline;
+        color: $ldark;
+    }
+}
+}
+&__content {
+    flex-shrink: 1;
+flex-grow: 1;
+margin-left: 48px;
+max-width: 65ch;
+
+}
+    margin: 80px auto;
+
+    h2 {
+      font-family: $mont;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 24px;
+      margin-bottom: 20px;
+      margin-top: 36px;
+    }
+    .c6 {
+      margin-bottom: 16px;
+    }
+    .c5 {
+      font-weight: 600;
+    }
+    .c26 {
+        text-align: center;
+    }
+    table {
+        width: 100%;
+        margin-bottom: 20px;
+        border: 1px solid #dddddd;
+        border-collapse: collapse; 
+        font-size: 14px;
+        .c3 {
+            text-align: center;
+        }
+        .c16 {
+            font-size: 12px;
+        }
+    }
+    th {
+        font-weight: bold;
+        padding: 5px 10px;
+        background: #efefef;
+        border: 1px solid #dddddd;
+    }
+    td {
+        border: 1px solid #dddddd;
+        padding: 5px 10px;
+    }
+  }
